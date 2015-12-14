@@ -35,7 +35,7 @@ public class Path<PuzzleMove> {
 	public String toString(){
 		StringBuilder sb =  new StringBuilder();
 		for(PuzzleMove move : moves){
-			sb.append(move+"\n");
+			sb.append(move);
 		}
 		return sb.toString();
 	}

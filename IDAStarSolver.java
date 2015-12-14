@@ -29,11 +29,6 @@ public class IDAStarSolver extends Solver{
 			
 			while (!queue.isEmpty()) {
 				PuzzleState currState = queue.poll();
-				//Test for goal state
-				if (currState.isGoalState()) {
-					this.solutionPath = currState.path;
-					return;
-				}
 				explored.add(currState);
 				
 				//Get move list and add child states to priority queue
@@ -41,9 +36,9 @@ public class IDAStarSolver extends Solver{
 				for (PuzzleMove move : moves) {
 					PuzzleState childState = new PuzzleState(currState);
 					childState.makeMove(move);
-					double GX = childState.path.getLength();
-					double HX = heuristic.getHXvalue(childState,true);
-					childState.setEvaluationValue(GX + HX);
+					//double GX = 0;//childState.path.getLength();
+					int HX = heuristic.getHXvalue(childState,true);
+					childState.setEvaluationValue(HX);
 					if( explored.contains(childState)){
 						continue;
 					}

@@ -31,11 +31,7 @@ public class GreedySolver extends Solver {
 		while (!queue.isEmpty()) {
 			// Get next best state from priority queue
 			PuzzleState currState = queue.poll();
-			if (currState.isGoalState()) {
-				this.solutionPath = currState.path;
-				this.goalState = currState;
-				return;
-			}
+
 			exploredSet.add(currState);
 			// Get move list and add to priority queue according to HX value
 			ArrayList<PuzzleMove> moves = currState.getMoveList();

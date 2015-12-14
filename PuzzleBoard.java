@@ -6,7 +6,7 @@ import java.util.Arrays;
 
 public class PuzzleBoard {
 
-	int[][] board;
+	byte[][] board;
 	int SIZE;
 	// (x,y) coordinates of the empty square
 	int emptyX;
@@ -23,9 +23,9 @@ public class PuzzleBoard {
 		} catch (Exception e) {
 		}
 		try {
-			board = new int[SIZE][SIZE];
+			board = new byte[SIZE][SIZE];
 			for (int i = 0; i < SIZE; i++) {
-				board[i] = getIntArr(reader.readLine().split(" "));
+				board[i] = getByteArr(reader.readLine().split(" "));
 				for (int j = 0; j < SIZE; j++) {
 					if (board[i][j] == 0) {
 						this.emptyX = i;
@@ -44,14 +44,14 @@ public class PuzzleBoard {
 	/*
 	 * Returns value at (x,y)
 	 */
-	public int get(int x, int y) {
+	public byte get(int x, int y) {
 		return board[x][y];
 	}
 
 	//Creates deep copy of board
 	public PuzzleBoard(PuzzleBoard board) {
 		this.SIZE = board.SIZE;
-		this.board = new int[SIZE][SIZE];
+		this.board = new byte[SIZE][SIZE];
 		for (int i = 0; i < SIZE; i++) {
 			this.board[i] = Arrays.copyOf(board.board[i], SIZE);
 		}
@@ -60,17 +60,17 @@ public class PuzzleBoard {
 	}
 
 	//Helper method for constructors
-	private int[] getIntArr(String[] arr) {
-		int[] toReturn = new int[arr.length];
+	private byte[] getByteArr(String[] arr) {
+		byte[] toReturn = new byte[arr.length];
 		for (int i = 0; i < arr.length; i++) {
-			toReturn[i] = Integer.parseInt(arr[i]);
+			toReturn[i] = Byte.parseByte(arr[i]);
 		}
 		return toReturn;
 	}
 
 	//Takes swaps tiles (emptyX,empty) and (x,y)
 	public void swapWithEmpty(int x, int y) {
-		int temp = board[emptyX][emptyY];
+		byte temp = board[emptyX][emptyY];
 		board[emptyX][emptyY] = board[x][y];
 		board[x][y] = temp;
 		emptyX = x;

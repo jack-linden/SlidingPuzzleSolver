@@ -6,16 +6,18 @@ public class PuzzleState implements Comparable<PuzzleState> {
 	
 	PuzzleBoard board; //The current board configuration
 	Path<PuzzleMove> path; //The path leading to this state
-	double evaluationValue; //The value representing how "good" the board is
+	int evaluationValue; //The value representing how "good" the board is
 
 	public PuzzleState(PuzzleBoard board) {
 		this.board = new PuzzleBoard(board);
 		this.path = new Path<PuzzleMove>();
+		this.evaluationValue = 0;
 	}
 
 	public PuzzleState(PuzzleState state) {
 		this.board = new PuzzleBoard(state.board);
 		this.path = new Path<PuzzleMove>(state.path);
+		this.evaluationValue = 0;
 	}
 
 	public Path<PuzzleMove> getPath() {
@@ -29,7 +31,7 @@ public class PuzzleState implements Comparable<PuzzleState> {
 		return evaluationValue == 0;
 	}
 
-	public void setEvaluationValue(double val) {
+	public void setEvaluationValue(int val) {
 		this.evaluationValue = val;
 	}
 

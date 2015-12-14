@@ -13,6 +13,6 @@ public class PuzzleMove {
 	}
 	
 	public String toString(){
-		return "Moved " + number + " to the empty square";
+		return number + " | ";
 	}
 }
