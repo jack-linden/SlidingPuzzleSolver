@@ -1,5 +1,6 @@
 Sliding Puzzle Solver
 
 Runs:
-	java GreedySolverDrive [initStateFile] [goalStateFile]
-	java BidirectionalGreedySolver [initStateFile] [goalStateFile]
+	java GreedySolverDriver [initStateFile] [goalStateFile]
+	
+	java BidirectionalGreedySolverDriver [initStateFile] [goalStateFile]
