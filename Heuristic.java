@@ -1,4 +1,4 @@
-package puzzle;
+   
 
 public abstract class Heuristic {
 	

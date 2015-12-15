@@ -1,4 +1,4 @@
-package puzzle;
+   
 
 /*
  * Factory class for returning heuristics. 
